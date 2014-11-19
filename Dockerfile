@@ -24,6 +24,10 @@ RUN \
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
+RUN \
+  apt-get update && \
+  apt-get install -y ruby ruby-dev ruby-bundler
+
 RUN pip install -U tox flake8
 
 RUN apt-get update && apt-get install -y nodejs
