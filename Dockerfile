@@ -10,6 +10,7 @@ RUN \
 
 
 RUN apt-get update && apt-get install -y postgresql postgresql-server-dev-9.3 libjpeg62 libpng3
+RUN apt-get update && apt-get install -y redis-server
 RUN apt-get update && apt-get install -y python python-dev python-virtualenv python3 python3-dev supervisor
 
 # Install Java.
