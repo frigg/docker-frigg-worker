@@ -1,6 +1,6 @@
 all: setup run
 
-setup:
+worker.yaml:
 	@echo "Redis-host: ";\
 	 read redis_host;\
 	 echo "Redis-port: ";\
@@ -23,7 +23,11 @@ setup:
 	 echo "  password: $$redis_pw"                     >> worker.yaml;\
 	 echo "  db: $$redis_db"                           >> worker.yaml;\
 	 echo "SENTRY_DSN: $$sentry_dsn"                   >> worker.yaml
+
+setup: worker.yaml
 	docker build -t worker .
 
 run:
 	docker run -i worker 2>&1 > worker.log &
+
+.PHONY: setup run
