@@ -26,6 +26,10 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 RUN \
   apt-get update && \
+  apt-get install -y maven
+
+RUN \
+  apt-get update && \
   apt-get install -y ruby ruby-dev ruby-bundler
 
 RUN pip install -U tox flake8
