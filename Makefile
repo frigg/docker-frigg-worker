@@ -30,4 +30,7 @@ setup: worker.yaml
 run:
 	docker run -i worker 2>&1 > worker.log &
 
+killall:
+	docker kill $(docker ps | grep worker | awk '{print $1}')
+
 .PHONY: setup run
